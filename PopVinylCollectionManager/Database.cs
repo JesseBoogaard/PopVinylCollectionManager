@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace PopVinylCollectionManager {
     class Database {
         private Database _Instance;
-        private static readonly string _ConnectionString = "";
+        private SqlConnection conn;
+        private static readonly string _ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database.mdf;Integrated Security=True";;
 
         private Database() {
             _Instance = new Database();
