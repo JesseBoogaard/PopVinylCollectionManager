@@ -9,11 +9,12 @@ using System.Data.SqlClient;
 namespace PopVinylCollectionManager {
     class Database {
         private Database _Instance;
-        private SqlConnection conn;
+        private SqlConnection Conn;
         private static readonly string _ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database.mdf;Integrated Security=True";;
 
         private Database() {
             _Instance = new Database();
+            Conn = new SqlConnection(_ConnectionString);
         }
 
         public Database Instance {
@@ -23,7 +24,20 @@ namespace PopVinylCollectionManager {
         }
 
         public List<Product> GetAllProductsFromDB() {
-            return new List<Product>();
+            string Query = "SELECT * FROM Products";
+            List<Product> Result = new List<Product>();
+
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+
+            using(SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    Result.Add(new Product(r.GetString(0), r.GetInt32(1), r.GetInt32(2), r.GetString(3)));
+                }
+            }
+            Conn.Close();
+            return Result;
+
         }
 
         public bool AddProductToDB(/*name, img, etc*/) {
