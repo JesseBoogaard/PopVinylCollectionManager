@@ -9,12 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PopVinylCollectionManager {
-    public partial class Form2 : Form {
-        private User _Usr;
-        private Form1 f;
-        public Form2(User Usr, Form1 F) {
-            _Usr = Usr;
-            f = F;
+    public partial class RegisterCollectionForm : Form {
+        Database _DB = Database.Instance;
+        public RegisterCollectionForm() {
             InitializeComponent();
         }
 
@@ -23,18 +20,12 @@ namespace PopVinylCollectionManager {
         }
 
         private bool CreateNewCollection(string Name, string Info) {
-            _Usr.AddCollectionToUser(new Collection(Name, Info));
+            _DB.AddCollectionToDB(Name, Info);
             return true;
         }
 
         private bool NewCollectionRegistered(bool a) {
-            if (a) {
-                f.UpdateCollectionListBox();
-                this.Close();
-                return true;
-            } else {
-                return false;
-            }
+            return true;
         }
     }
 }

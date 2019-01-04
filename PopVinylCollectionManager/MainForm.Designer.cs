@@ -1,5 +1,5 @@
 ﻿namespace PopVinylCollectionManager {
-    partial class Form1 {
+    partial class MainForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -134,6 +134,7 @@
             this.Controls.Add(this.GroupBoxMain);
             this.Name = "Form1";
             this.Text = "Pop! Vinyl Collection-manager";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.GroupBoxMain.ResumeLayout(false);
             this.SelectedCollectionInfoGroupBox.ResumeLayout(false);
             this.GroupBoxProfile.ResumeLayout(false);

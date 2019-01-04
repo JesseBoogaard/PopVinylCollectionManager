@@ -1,5 +1,5 @@
 ﻿namespace PopVinylCollectionManager {
-    partial class Form2 {
+    partial class RegisterCollectionForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>

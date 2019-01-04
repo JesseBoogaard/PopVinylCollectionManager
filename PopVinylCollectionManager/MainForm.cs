@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PopVinylCollectionManager {
-    public partial class Form1 : Form {
+    public partial class MainForm : Form {
         public User Usr = new User("Jesse", 1);
-        public Form1() {
+        public MainForm() {
             InitializeComponent();
         }
 
@@ -21,7 +21,7 @@ namespace PopVinylCollectionManager {
         }
 
         private void OpenCreateCollForm() {
-            Form2 f = new Form2(Usr, this);
+            RegisterCollectionForm f = new RegisterCollectionForm();
             f.Show();
         }
 
@@ -32,5 +32,9 @@ namespace PopVinylCollectionManager {
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e) {
+            CreateUserForm a = new CreateUserForm();
+            a.Show();
+        }
     }
 }
