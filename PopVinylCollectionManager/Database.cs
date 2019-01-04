@@ -10,7 +10,7 @@ namespace PopVinylCollectionManager {
     class Database {
         private Database _Instance;
         private SqlConnection Conn;
-        private static readonly string _ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database.mdf;Integrated Security=True";;
+        private static readonly string _ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database.mdf;Integrated Security=True";
 
         private Database() {
             _Instance = new Database();
