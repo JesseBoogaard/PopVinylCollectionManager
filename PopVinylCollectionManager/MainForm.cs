@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace PopVinylCollectionManager {
     public partial class MainForm : Form {
-        public User Usr = new User("Jesse", 1);
         public MainForm() {
             InitializeComponent();
         }
@@ -26,15 +25,10 @@ namespace PopVinylCollectionManager {
         }
 
         public void UpdateCollectionListBox() {
-            CollectionListBox.Items.Clear();
-            foreach(Collection c in Usr.GetAllUserCollections) {
-                CollectionListBox.Items.Add(c);
-            }
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            CreateUserForm a = new CreateUserForm();
-            a.Show();
+            UserNameLabel.Text = User.Instance.Name;
         }
     }
 }
