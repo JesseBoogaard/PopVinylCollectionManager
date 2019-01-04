@@ -8,19 +8,40 @@ using System.Data.SqlClient;
 
 namespace PopVinylCollectionManager {
     class Database {
-        private Database _Instance;
-        private SqlConnection Conn;
+        private static Database _instance = new Database();
         private static readonly string _ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database.mdf;Integrated Security=True";
+        private SqlConnection Conn = new SqlConnection(_ConnectionString);
 
         private Database() {
-            _Instance = new Database();
-            Conn = new SqlConnection(_ConnectionString);
         }
 
-        public Database Instance {
+        public static Database Instance {
             get {
-                return _Instance;
+                return _instance;
             }
+        }
+
+        public bool AddUserToDB(string Name, string Password) {
+            try {
+                string Query = $"INSERT INTO Usr (Name, Password) VALUES {Name}, {Password}";
+                Conn.Open();
+                SqlCommand cmd = new SqlCommand(Query, Conn);
+                using(SqlDataReader r = cmd.ExecuteReader()) {
+                    while (r.Read()) {
+
+                    }
+                    Conn.Close();
+                }
+            } catch(Exception e){
+                MessageBox.Show(e.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public bool AddCollectionToDB(string Name, string Info) {
+            string Query = $"INSERT INTO UserCollection (CollectionName, CollectionInfo) VALUES ({Name}, {Info})";
+            return true;
         }
 
         public List<Product> GetAllProductsFromDB() {
