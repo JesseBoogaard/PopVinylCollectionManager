@@ -7,3 +7,10 @@ SELECT Usr.Name, UserCollection.CollectionName, UserCollection.CollectionInfo, P
 INNER JOIN UserCollection ON ProductCollection.Collection_ID = UserCollection.Id)
 INNER JOIN Product ON ProductCollection.Product_ID = Product.Id)
 INNER JOIN Usr ON UserCollection.User_ID = Usr.Id)
+
+/* get collection by collectionname and order results by their name in descending order */
+SELECT Product.ProductName, Product.ProductNo FROM ((ProductCollection
+INNER JOIN UserCollection ON ProductCollection.Collection_ID = UserCollection.Id)
+INNER JOIN Product ON ProductCollection.Product_ID = Product.Id) WHERE ProductCollection.Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = 'TestCollection')
+GROUP BY Product.ProductName, Product.ProductNo
+ORDER BY ProductName DESC
