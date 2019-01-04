@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PopVinylCollectionManager {
-    class User {
+    public class User {
         private string _Name { get; set; }
         private int _Id { get; set; }
         private List<Collection> _UserCollections = new List<Collection>();
@@ -15,20 +15,23 @@ namespace PopVinylCollectionManager {
             _Id = Id;
         }
 
-        public bool AddProductToCollection(/*CollectionName, ProductName*/) {
+        public bool AddCollectionToUser(Collection c) {
+            _UserCollections.Add(c);
             return true;
         }
 
-        public bool RemoveProductFromCollection(/*CollectionName, ProductName*/) {
+        bool RemoveProductFromCollection(/*CollectionName, ProductName*/) {
             return true;
         }
 
-        public List<Product> GetUserCollection(string CollectionName) {
+        List<Product> GetUserCollection(string CollectionName) {
             return new List<Product>();
         }
 
-        public List<Collection> GetAllUserCollections() {
-            return new List<Collection>();
+        public List<Collection> GetAllUserCollections {
+            get {
+                return _UserCollections;
+            }
         }
     }
 }
