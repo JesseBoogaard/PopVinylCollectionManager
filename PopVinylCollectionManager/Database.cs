@@ -9,10 +9,11 @@ using System.Data.SqlClient;
 namespace PopVinylCollectionManager {
     class Database {
         private static Database _instance = new Database();
-        private static readonly string _ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database.mdf;Integrated Security=True";
-        private SqlConnection Conn = new SqlConnection(_ConnectionString);
+        private string _ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database.mdf;Integrated Security=True";
+        private SqlConnection Conn;
 
         private Database() {
+           Conn = new SqlConnection(_ConnectionString);
         }
 
         public static Database Instance {
@@ -21,22 +22,33 @@ namespace PopVinylCollectionManager {
             }
         }
 
-        public bool AddUserToDB(string Name, string Password) {
-            try {
-                string Query = $"INSERT INTO Usr (Name, Password) VALUES {Name}, {Password}";
-                Conn.Open();
-                SqlCommand cmd = new SqlCommand(Query, Conn);
-                using(SqlDataReader r = cmd.ExecuteReader()) {
-                    while (r.Read()) {
-
-                    }
-                    Conn.Close();
+        public int AddUserToDB(string Name, string Password) {
+            string Query = $"INSERT INTO Usr (Name, Password) VALUES ('{Name}', '{Password}') SELECT Id FROM Usr WHERE Name = '{Name}'";
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+            int res = 0;
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    res = r.GetInt32(0);
                 }
-            } catch(Exception e){
-                MessageBox.Show(e.Message);
-                return false;
             }
-            return true;
+            Conn.Close();
+            return res;
+        }
+
+        public User GetCurrentUser(int UID) {
+            string Query = $"SELECT Name, Id FROM Usr WHERE Id = '{UID}'";
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+            User res = User.Instance;
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    res.Name = r.GetString(0);
+                    res.Id = r.GetInt32(1);
+                }
+                Conn.Close();
+                return res;
+            }
         }
 
         public bool AddCollectionToDB(string Name, string Info) {

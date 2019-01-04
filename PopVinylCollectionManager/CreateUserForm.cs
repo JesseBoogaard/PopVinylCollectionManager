@@ -19,9 +19,16 @@ namespace PopVinylCollectionManager {
             RegisterNewUser(NewUserNameInput.Text, NewPasswordInput.Text);
         }
 
-        private bool RegisterNewUser(string Name, string Password) {
-            _DB.AddUserToDB(Name, Password);
-            return true;
+        private void RegisterNewUser(string Name, string Password) {
+            int UID = _DB.AddUserToDB(Name, Password);
+            SetCurrentUser(UID);
+            MainForm a = new MainForm();
+            a.Show();
+            this.Hide();
+        }
+        private void SetCurrentUser(int UID) {
+            _DB.GetCurrentUser(UID);
+
         }
     }
 }
