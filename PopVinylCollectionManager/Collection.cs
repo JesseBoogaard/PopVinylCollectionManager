@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PopVinylCollectionManager {
-    class Collection {
+    public class Collection {
         private string _Name { get; set; }
         private string _Info { get; set; }
         private int Id { get; }
@@ -13,6 +13,10 @@ namespace PopVinylCollectionManager {
         public Collection(string Name, string Info) {
             _Name = Name;
             _Info = Info;
+        }
+
+        public override string ToString() {
+            return $"Collection: {_Name} \t Info: {_Info}";
         }
     }
 }
