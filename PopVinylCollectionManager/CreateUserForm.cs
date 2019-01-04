@@ -20,15 +20,32 @@ namespace PopVinylCollectionManager {
         }
 
         private void RegisterNewUser(string Name, string Password) {
-            int UID = _DB.AddUserToDB(Name, Password);
-            SetCurrentUser(UID);
-            MainForm a = new MainForm();
-            a.Show();
-            this.Hide();
+            if (SetCurrentUser(_DB.AddUserToDB(Name, Password))) {
+                MainForm a = new MainForm();
+                a.Show();
+                this.Hide();
+            };
         }
-        private void SetCurrentUser(int UID) {
-            _DB.GetCurrentUser(UID);
+        private bool SetCurrentUser(int UID) {
+            if(UID != 0) {
+                _DB.GetCurrentUser(UID);
+                return true;
+            } else {
+                MessageBox.Show("signin failed, try again.");
+                return false;
+            }
+        }
 
+        private void UserLoginSubmit_Click(object sender, EventArgs e) {
+            LoginUser(UserNameInput.Text, UserPasswordInput.Text);
+        }
+
+        private void LoginUser(string Name, string Password) {
+            if (SetCurrentUser(_DB.CheckUserInfo(Name, Password))) {
+                MainForm a = new MainForm();
+                a.Show();
+                this.Hide();
+            };
         }
     }
 }

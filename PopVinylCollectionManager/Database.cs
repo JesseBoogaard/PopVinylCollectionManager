@@ -51,6 +51,21 @@ namespace PopVinylCollectionManager {
             }
         }
 
+        public int CheckUserInfo(string Name, string Password) {
+            string Query = $"SELECT Name, Id FROM Usr WHERE Name = '{Name}' AND Password = '{Password}'";
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+            User res = User.Instance;
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    res.Name = r.GetString(0);
+                    res.Id = r.GetInt32(1);
+                }
+                Conn.Close();
+                return res.Id;
+            }
+        }
+
         public bool AddCollectionToDB(string Name, string Info) {
             string Query = $"INSERT INTO UserCollection (CollectionName, CollectionInfo) VALUES ({Name}, {Info})";
             return true;

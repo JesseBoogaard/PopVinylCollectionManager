@@ -30,8 +30,8 @@
             this.NewUserNameInput = new System.Windows.Forms.TextBox();
             this.NewPasswordInput = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.UserPasswordSubmit = new System.Windows.Forms.TextBox();
-            this.UserNameSubmit = new System.Windows.Forms.TextBox();
+            this.UserPasswordInput = new System.Windows.Forms.TextBox();
+            this.UserNameInput = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.UserLoginSubmit = new System.Windows.Forms.Button();
@@ -98,8 +98,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.UserPasswordSubmit);
-            this.groupBox2.Controls.Add(this.UserNameSubmit);
+            this.groupBox2.Controls.Add(this.UserPasswordInput);
+            this.groupBox2.Controls.Add(this.UserNameInput);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.UserLoginSubmit);
@@ -108,22 +108,22 @@
             this.groupBox2.Size = new System.Drawing.Size(294, 207);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sign up";
+            this.groupBox2.Text = "Login";
             // 
-            // UserPasswordSubmit
+            // UserPasswordInput
             // 
-            this.UserPasswordSubmit.Location = new System.Drawing.Point(13, 120);
-            this.UserPasswordSubmit.Name = "UserPasswordSubmit";
-            this.UserPasswordSubmit.PasswordChar = '*';
-            this.UserPasswordSubmit.Size = new System.Drawing.Size(275, 20);
-            this.UserPasswordSubmit.TabIndex = 4;
+            this.UserPasswordInput.Location = new System.Drawing.Point(13, 120);
+            this.UserPasswordInput.Name = "UserPasswordInput";
+            this.UserPasswordInput.PasswordChar = '*';
+            this.UserPasswordInput.Size = new System.Drawing.Size(275, 20);
+            this.UserPasswordInput.TabIndex = 4;
             // 
-            // UserNameSubmit
+            // UserNameInput
             // 
-            this.UserNameSubmit.Location = new System.Drawing.Point(10, 47);
-            this.UserNameSubmit.Name = "UserNameSubmit";
-            this.UserNameSubmit.Size = new System.Drawing.Size(278, 20);
-            this.UserNameSubmit.TabIndex = 3;
+            this.UserNameInput.Location = new System.Drawing.Point(10, 47);
+            this.UserNameInput.Name = "UserNameInput";
+            this.UserNameInput.Size = new System.Drawing.Size(278, 20);
+            this.UserNameInput.TabIndex = 3;
             // 
             // label3
             // 
@@ -151,6 +151,7 @@
             this.UserLoginSubmit.TabIndex = 0;
             this.UserLoginSubmit.Text = "Login";
             this.UserLoginSubmit.UseVisualStyleBackColor = true;
+            this.UserLoginSubmit.Click += new System.EventHandler(this.UserLoginSubmit_Click);
             // 
             // CreateUserForm
             // 
@@ -178,8 +179,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button NewUserSubmit;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox UserPasswordSubmit;
-        private System.Windows.Forms.TextBox UserNameSubmit;
+        private System.Windows.Forms.TextBox UserPasswordInput;
+        private System.Windows.Forms.TextBox UserNameInput;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button UserLoginSubmit;
