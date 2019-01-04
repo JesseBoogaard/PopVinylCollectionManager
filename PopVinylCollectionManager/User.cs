@@ -6,13 +6,33 @@ using System.Threading.Tasks;
 
 namespace PopVinylCollectionManager {
     public class User {
-        private string _Name { get; set; }
-        private int _Id { get; set; }
+        private static User _instance = new User();
+        private string _Name;
+        private int _Id;
         private List<Collection> _UserCollections = new List<Collection>();
 
-        public User(string Name, int Id) {
-            _Name = Name;
-            _Id = Id;
+        private User() {
+        }
+
+        public static User Instance {
+            get {
+                return _instance;
+            }
+        }
+
+        public string Name {
+            get {
+                return _Name;
+            }
+            set {
+                _Name = value;
+            }
+        }
+
+        public int Id {
+            set {
+                _Id = value;
+            }
         }
 
         public bool AddCollectionToUser(Collection c) {
