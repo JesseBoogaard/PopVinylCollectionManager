@@ -26,9 +26,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.NewProductSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProductNameInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ProductNumberInput = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.AvailableSeriesSelect = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
@@ -38,9 +38,9 @@
             // 
             this.groupBox1.Controls.Add(this.AvailableSeriesSelect);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.ProductNumberInput);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.ProductNameInput);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.NewProductSubmit);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
@@ -58,6 +58,7 @@
             this.NewProductSubmit.TabIndex = 0;
             this.NewProductSubmit.Text = "Add product";
             this.NewProductSubmit.UseVisualStyleBackColor = true;
+            this.NewProductSubmit.Click += new System.EventHandler(this.NewProductSubmit_Click);
             // 
             // label1
             // 
@@ -68,12 +69,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Product Name";
             // 
-            // textBox1
+            // ProductNameInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(325, 20);
-            this.textBox1.TabIndex = 2;
+            this.ProductNameInput.Location = new System.Drawing.Point(7, 47);
+            this.ProductNameInput.Name = "ProductNameInput";
+            this.ProductNameInput.Size = new System.Drawing.Size(325, 20);
+            this.ProductNameInput.TabIndex = 2;
             // 
             // label2
             // 
@@ -84,12 +85,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Product Number";
             // 
-            // textBox2
+            // ProductNumberInput
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(325, 20);
-            this.textBox2.TabIndex = 4;
+            this.ProductNumberInput.Location = new System.Drawing.Point(7, 104);
+            this.ProductNumberInput.Name = "ProductNumberInput";
+            this.ProductNumberInput.Size = new System.Drawing.Size(325, 20);
+            this.ProductNumberInput.TabIndex = 4;
             // 
             // label3
             // 
@@ -126,9 +127,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ProductNumberInput;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ProductNameInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button NewProductSubmit;
         private System.Windows.Forms.Label label3;
