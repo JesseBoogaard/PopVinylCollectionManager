@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace PopVinylCollectionManager {
     class Product {
         private string _Name { get; set; }
-        private int _SeriesID;
+        private string _Series;
         private long _ProductNo { get; set; }
         private string _ImgURL { get; set; }
 
-        public Product(string Name, int SeriesID, long ProductNo) {
+        public Product(string Name, int ProductNo, string Series) {
             _Name = Name;
-            _SeriesID = SeriesID;
+            _Series = Series;
             _ProductNo = ProductNo;
         }
     }
