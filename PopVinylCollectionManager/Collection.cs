@@ -9,6 +9,7 @@ namespace PopVinylCollectionManager {
         private string _Name { get; set; }
         private string _Info { get; set; }
         private int Id { get; }
+        private List<Product> _Products { get; set; } = new List<Product>();
 
         public Collection(string Name, string Info) {
             _Name = Name;
