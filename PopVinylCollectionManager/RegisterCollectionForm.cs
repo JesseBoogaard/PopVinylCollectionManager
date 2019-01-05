@@ -11,21 +11,24 @@ using System.Windows.Forms;
 namespace PopVinylCollectionManager {
     public partial class RegisterCollectionForm : Form {
         Database _DB = Database.Instance;
-        public RegisterCollectionForm() {
+        MainForm _a;
+        public RegisterCollectionForm(MainForm a) {
+            _a = a;
             InitializeComponent();
         }
 
         private void NewCollSubmit_Click(object sender, EventArgs e) {
-            NewCollectionRegistered(CreateNewCollection(NewCollNameInput.Text, NewCollInfoInput.Text));
+            CreateNewCollection(NewCollNameInput.Text, NewCollInfoInput.Text);
         }
 
-        private bool CreateNewCollection(string Name, string Info) {
-            _DB.AddCollectionToDB(Name, Info);
-            return true;
-        }
-
-        private bool NewCollectionRegistered(bool a) {
-            return true;
+        private void CreateNewCollection(string Name, string Info) {
+            if (_DB.AddCollectionToDB(Name, Info)) {
+                User.Instance.AddCollectionToUser(new Collection(Name, Info));
+                _a.UpdateCollectionListBox();
+                this.Close();
+            } else {
+                MessageBox.Show("Something went wrong adding your collection, please try again later.");
+            }
         }
     }
 }

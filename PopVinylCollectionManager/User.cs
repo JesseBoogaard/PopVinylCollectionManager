@@ -14,6 +14,26 @@ namespace PopVinylCollectionManager {
         private User() {
         }
 
+
+        public bool AddCollectionToUser(Collection c) {
+            _UserCollections.Add(c);
+            return true;
+        }
+
+        bool RemoveProductFromCollection(/*CollectionName, ProductName*/) {
+            return true;
+        }
+
+        List<Product> GetUserCollection(string CollectionName) {
+            return new List<Product>();
+        }
+
+        public List<Collection> GetAllUserCollections {
+            get {
+                return _UserCollections;
+            }
+        }
+
         public static User Instance {
             get {
                 return _instance;
@@ -38,23 +58,5 @@ namespace PopVinylCollectionManager {
             }
         }
 
-        public bool AddCollectionToUser(Collection c) {
-            _UserCollections.Add(c);
-            return true;
-        }
-
-        bool RemoveProductFromCollection(/*CollectionName, ProductName*/) {
-            return true;
-        }
-
-        List<Product> GetUserCollection(string CollectionName) {
-            return new List<Product>();
-        }
-
-        public List<Collection> GetAllUserCollections {
-            get {
-                return _UserCollections;
-            }
-        }
     }
 }

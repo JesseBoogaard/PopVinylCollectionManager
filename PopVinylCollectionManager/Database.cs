@@ -21,7 +21,7 @@ namespace PopVinylCollectionManager {
                 return _instance;
             }
         }
-
+        // register new user in database
         public int AddUserToDB(string Name, string Password) {
             string Query = $"INSERT INTO Usr (Name, Password) VALUES ('{Name}', '{Password}') SELECT Id FROM Usr WHERE Name = '{Name}'";
             Conn.Open();
@@ -35,7 +35,7 @@ namespace PopVinylCollectionManager {
             Conn.Close();
             return res;
         }
-
+        // get userdata where UID is a match
         public User GetCurrentUser(int UID) {
             string Query = $"SELECT Name, Id FROM Usr WHERE Id = '{UID}'";
             Conn.Open();
@@ -50,7 +50,7 @@ namespace PopVinylCollectionManager {
                 return res;
             }
         }
-
+        // get userdata where name and password are a match
         public int CheckUserInfo(string Name, string Password) {
             string Query = $"SELECT Name, Id FROM Usr WHERE Name = '{Name}' AND Password = '{Password}'";
             Conn.Open();
@@ -65,10 +65,21 @@ namespace PopVinylCollectionManager {
                 return res.Id;
             }
         }
-
+        // register usercollection to database
         public bool AddCollectionToDB(string Name, string Info) {
-            string Query = $"INSERT INTO UserCollection (CollectionName, CollectionInfo) VALUES ({Name}, {Info})";
-            return true;
+            int UID = User.Instance.Id;
+            string Query = $"INSERT INTO UserCollection (CollectionName, CollectionInfo, User_ID) VALUES ('{Name}', '{Info}', {UID})";
+            try {
+                Conn.Open();
+                SqlCommand cmd = new SqlCommand(Query, Conn);
+                cmd.ExecuteNonQuery();
+                Conn.Close();
+                return true;
+            } catch(Exception e) {
+                Conn.Close();
+                MessageBox.Show(e.Message);
+                return false;
+            }
         }
 
         public List<Product> GetAllProductsFromDB() {

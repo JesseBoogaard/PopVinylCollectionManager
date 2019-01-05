@@ -14,21 +14,25 @@ namespace PopVinylCollectionManager {
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e) {
+            UpdateCollectionListBox();
+            UserNameLabel.Text = User.Instance.Name;
+        }
 
         private void CreateCollButton_Click(object sender, EventArgs e) {
             OpenCreateCollForm();
         }
 
         private void OpenCreateCollForm() {
-            RegisterCollectionForm f = new RegisterCollectionForm();
+            RegisterCollectionForm f = new RegisterCollectionForm(this);
             f.Show();
         }
 
         public void UpdateCollectionListBox() {
-        }
-
-        private void Form1_Load(object sender, EventArgs e) {
-            UserNameLabel.Text = User.Instance.Name;
+            CollectionListBox.Items.Clear();
+            foreach(Collection c in User.Instance.GetAllUserCollections) {
+                CollectionListBox.Items.Add(c);
+            }
         }
     }
 }
