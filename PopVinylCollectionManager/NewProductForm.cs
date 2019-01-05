@@ -17,7 +17,13 @@ namespace PopVinylCollectionManager {
         }
 
         private void NewProductForm_Load(object sender, EventArgs e) {
+            GetAvailableSeries();
+        }
 
+        private void GetAvailableSeries() {
+            foreach (string s in Database.Instance.GetAllSeries()) {
+                AvailableSeriesSelect.Items.Add(s);  
+            };
         }
     }
 }

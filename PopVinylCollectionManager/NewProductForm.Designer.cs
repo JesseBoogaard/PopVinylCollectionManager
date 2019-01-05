@@ -29,15 +29,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.AvailableSeriesSelect = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.AvailableSeriesSelect);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.domainUpDown1);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -91,14 +91,6 @@
             this.textBox2.Size = new System.Drawing.Size(325, 20);
             this.textBox2.TabIndex = 4;
             // 
-            // domainUpDown1
-            // 
-            this.domainUpDown1.Location = new System.Drawing.Point(7, 166);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.domainUpDown1.TabIndex = 5;
-            this.domainUpDown1.Text = "domainUpDown1";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -107,6 +99,14 @@
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Series";
+            // 
+            // AvailableSeriesSelect
+            // 
+            this.AvailableSeriesSelect.FormattingEnabled = true;
+            this.AvailableSeriesSelect.Location = new System.Drawing.Point(7, 164);
+            this.AvailableSeriesSelect.Name = "AvailableSeriesSelect";
+            this.AvailableSeriesSelect.Size = new System.Drawing.Size(121, 21);
+            this.AvailableSeriesSelect.TabIndex = 7;
             // 
             // NewProductForm
             // 
@@ -132,6 +132,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button NewProductSubmit;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
+        private System.Windows.Forms.ComboBox AvailableSeriesSelect;
     }
 }
