@@ -25,9 +25,11 @@
         private void InitializeComponent() {
             this.GroupBoxMain = new System.Windows.Forms.GroupBox();
             this.SelectedCollectionInfoGroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.EditCollButton = new System.Windows.Forms.Button();
             this.CollectionListBox = new System.Windows.Forms.ListBox();
             this.GroupBoxProfile = new System.Windows.Forms.GroupBox();
+            this.NewProductButton = new System.Windows.Forms.Button();
             this.CreateCollButton = new System.Windows.Forms.Button();
             this.TotalFigureCount = new System.Windows.Forms.Label();
             this.TotalCollectionCount = new System.Windows.Forms.Label();
@@ -51,6 +53,7 @@
             // 
             // SelectedCollectionInfoGroupBox
             // 
+            this.SelectedCollectionInfoGroupBox.Controls.Add(this.button1);
             this.SelectedCollectionInfoGroupBox.Controls.Add(this.EditCollButton);
             this.SelectedCollectionInfoGroupBox.Location = new System.Drawing.Point(7, 19);
             this.SelectedCollectionInfoGroupBox.Name = "SelectedCollectionInfoGroupBox";
@@ -58,6 +61,15 @@
             this.SelectedCollectionInfoGroupBox.TabIndex = 2;
             this.SelectedCollectionInfoGroupBox.TabStop = false;
             this.SelectedCollectionInfoGroupBox.Text = "Selected Collection";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1045, 290);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Add product";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // EditCollButton
             // 
@@ -78,6 +90,7 @@
             // 
             // GroupBoxProfile
             // 
+            this.GroupBoxProfile.Controls.Add(this.NewProductButton);
             this.GroupBoxProfile.Controls.Add(this.CreateCollButton);
             this.GroupBoxProfile.Controls.Add(this.TotalFigureCount);
             this.GroupBoxProfile.Controls.Add(this.TotalCollectionCount);
@@ -88,6 +101,16 @@
             this.GroupBoxProfile.TabIndex = 0;
             this.GroupBoxProfile.TabStop = false;
             this.GroupBoxProfile.Text = "Profile";
+            // 
+            // NewProductButton
+            // 
+            this.NewProductButton.Location = new System.Drawing.Point(60, 289);
+            this.NewProductButton.Name = "NewProductButton";
+            this.NewProductButton.Size = new System.Drawing.Size(120, 23);
+            this.NewProductButton.TabIndex = 4;
+            this.NewProductButton.Text = "Register new product";
+            this.NewProductButton.UseVisualStyleBackColor = true;
+            this.NewProductButton.Click += new System.EventHandler(this.NewProductButton_Click);
             // 
             // CreateCollButton
             // 
@@ -126,13 +149,13 @@
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "User";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 861);
             this.Controls.Add(this.GroupBoxMain);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Pop! Vinyl Collection-manager";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.GroupBoxMain.ResumeLayout(false);
@@ -154,6 +177,8 @@
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.Button EditCollButton;
         private System.Windows.Forms.Button CreateCollButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button NewProductButton;
     }
 }
 

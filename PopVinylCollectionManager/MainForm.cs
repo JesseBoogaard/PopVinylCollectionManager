@@ -28,11 +28,20 @@ namespace PopVinylCollectionManager {
             f.Show();
         }
 
+        private void OpenCreateProductForm() {
+            NewProductForm f = new NewProductForm(this);
+            f.Show();
+        }
+
         public void UpdateCollectionListBox() {
             CollectionListBox.Items.Clear();
             foreach(Collection c in User.Instance.GetAllUserCollections) {
                 CollectionListBox.Items.Add(c);
             }
+        }
+
+        private void NewProductButton_Click(object sender, EventArgs e) {
+
         }
     }
 }
