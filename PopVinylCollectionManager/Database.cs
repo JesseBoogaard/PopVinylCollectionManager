@@ -91,7 +91,7 @@ namespace PopVinylCollectionManager {
 
             using(SqlDataReader r = cmd.ExecuteReader()) {
                 while (r.Read()) {
-                    Result.Add(new Product(r.GetString(0), r.GetInt32(1), r.GetInt32(2), r.GetString(3)));
+                    Result.Add(new Product(r.GetString(0), r.GetInt32(1), r.GetInt32(2)));
                 }
             }
             Conn.Close();
