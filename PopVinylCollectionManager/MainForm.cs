@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace PopVinylCollectionManager {
     public partial class MainForm : Form {
+        private Database _DB = Database.Instance;
         public MainForm() {
             InitializeComponent();
         }
@@ -43,6 +44,19 @@ namespace PopVinylCollectionManager {
 
         private void NewProductButton_Click(object sender, EventArgs e) {
             OpenCreateProductForm();
+        }
+
+        private void CollectionListBox_SelectedIndexChanged(object sender, EventArgs e) {
+            object obj = CollectionListBox.SelectedItem;
+            Collection Coll = (Collection)obj;
+            UpdateProductCollectionList(Coll.Name);
+        }
+
+        private void UpdateProductCollectionList(string CollectionName) {
+            ProductCollectionList.Items.Clear();
+            foreach(Product p in _DB.AddProductsToSelectedCollection(CollectionName)) {
+                ProductCollectionList.Items.Add(p);
+            }
         }
     }
 }
