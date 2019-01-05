@@ -82,21 +82,52 @@ namespace PopVinylCollectionManager {
             }
         }
 
-        public List<Product> GetAllProductsFromDB() {
-            string Query = "SELECT * FROM Products";
-            List<Product> Result = new List<Product>();
+        public List<Collection> GetUserCollections(int UID) {
+            string Query = $"SELECT CollectionName, CollectionInfo FROM UserCollection WHERE User_ID = {UID}";
+            List<Collection> Result = new List<Collection>();
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
 
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    Result.Add(new Collection(r.GetString(0), r.GetString(1)));
+                }
+            }
+            Conn.Close();
+            return Result;
+        }
+
+        public List<Product> GetAllProductsFromDB() {
+            string Query = 
+                "SELECT Product.ProductName AS 'Name', Product.ProductNo AS 'Number', Series.SeriesName AS 'Series' FROM (Product " +
+                "INNER JOIN Series ON Product.SeriesID = Series.Id) " +
+                "GROUP BY Product.ProductName, Product.ProductNo, Series.SeriesName " +
+                "ORDER BY Series ASC";
+            List<Product> Result = new List<Product>();
             Conn.Open();
             SqlCommand cmd = new SqlCommand(Query, Conn);
 
             using(SqlDataReader r = cmd.ExecuteReader()) {
                 while (r.Read()) {
-                    Result.Add(new Product(r.GetString(0), r.GetInt32(1), r.GetInt32(2)));
+                    Result.Add(new Product(r.GetString(0), r.GetInt32(1), r.GetString(2)));
                 }
             }
             Conn.Close();
             return Result;
+        }
 
+        public List<string> GetAllSeries() {
+            string Query = "SELECT SeriesName FROM Series";
+            List<string> Result = new List<string>();
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    Result.Add(r.GetString(0));
+                }
+            }
+            Conn.Close();
+            return Result;
         }
 
         public bool AddProductToDB(/*name, img, etc*/) {
