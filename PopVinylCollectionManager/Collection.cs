@@ -16,6 +16,12 @@ namespace PopVinylCollectionManager {
             _Info = Info;
         }
 
+        public string Name {
+            get {
+                return _Name;
+            }
+        }
+
         public override string ToString() {
             return $"Collection: {_Name} \t Info: {_Info}";
         }
