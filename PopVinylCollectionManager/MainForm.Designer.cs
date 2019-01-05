@@ -25,7 +25,8 @@
         private void InitializeComponent() {
             this.GroupBoxMain = new System.Windows.Forms.GroupBox();
             this.SelectedCollectionInfoGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ProductCollectionList = new System.Windows.Forms.ListBox();
+            this.AddProductToCollectionSubmit = new System.Windows.Forms.Button();
             this.EditCollButton = new System.Windows.Forms.Button();
             this.CollectionListBox = new System.Windows.Forms.ListBox();
             this.GroupBoxProfile = new System.Windows.Forms.GroupBox();
@@ -34,7 +35,6 @@
             this.TotalFigureCount = new System.Windows.Forms.Label();
             this.TotalCollectionCount = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
-            this.ProductCollectionList = new System.Windows.Forms.ListBox();
             this.GroupBoxMain.SuspendLayout();
             this.SelectedCollectionInfoGroupBox.SuspendLayout();
             this.GroupBoxProfile.SuspendLayout();
@@ -55,7 +55,7 @@
             // SelectedCollectionInfoGroupBox
             // 
             this.SelectedCollectionInfoGroupBox.Controls.Add(this.ProductCollectionList);
-            this.SelectedCollectionInfoGroupBox.Controls.Add(this.button1);
+            this.SelectedCollectionInfoGroupBox.Controls.Add(this.AddProductToCollectionSubmit);
             this.SelectedCollectionInfoGroupBox.Controls.Add(this.EditCollButton);
             this.SelectedCollectionInfoGroupBox.Location = new System.Drawing.Point(7, 19);
             this.SelectedCollectionInfoGroupBox.Name = "SelectedCollectionInfoGroupBox";
@@ -64,18 +64,27 @@
             this.SelectedCollectionInfoGroupBox.TabStop = false;
             this.SelectedCollectionInfoGroupBox.Text = "Selected Collection";
             // 
-            // button1
+            // ProductCollectionList
             // 
-            this.button1.Location = new System.Drawing.Point(752, 782);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add product";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ProductCollectionList.FormattingEnabled = true;
+            this.ProductCollectionList.Location = new System.Drawing.Point(752, 20);
+            this.ProductCollectionList.Name = "ProductCollectionList";
+            this.ProductCollectionList.Size = new System.Drawing.Size(465, 745);
+            this.ProductCollectionList.TabIndex = 2;
+            // 
+            // AddProductToCollectionSubmit
+            // 
+            this.AddProductToCollectionSubmit.Location = new System.Drawing.Point(752, 782);
+            this.AddProductToCollectionSubmit.Name = "AddProductToCollectionSubmit";
+            this.AddProductToCollectionSubmit.Size = new System.Drawing.Size(146, 23);
+            this.AddProductToCollectionSubmit.TabIndex = 1;
+            this.AddProductToCollectionSubmit.Text = "Add product to collection";
+            this.AddProductToCollectionSubmit.UseVisualStyleBackColor = true;
+            this.AddProductToCollectionSubmit.Click += new System.EventHandler(this.AddProductToCollectionSubmit_Click);
             // 
             // EditCollButton
             // 
-            this.EditCollButton.Location = new System.Drawing.Point(833, 782);
+            this.EditCollButton.Location = new System.Drawing.Point(904, 782);
             this.EditCollButton.Name = "EditCollButton";
             this.EditCollButton.Size = new System.Drawing.Size(92, 23);
             this.EditCollButton.TabIndex = 0;
@@ -152,14 +161,6 @@
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "User";
             // 
-            // ProductCollectionList
-            // 
-            this.ProductCollectionList.FormattingEnabled = true;
-            this.ProductCollectionList.Location = new System.Drawing.Point(752, 20);
-            this.ProductCollectionList.Name = "ProductCollectionList";
-            this.ProductCollectionList.Size = new System.Drawing.Size(465, 745);
-            this.ProductCollectionList.TabIndex = 2;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,7 +189,7 @@
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.Button EditCollButton;
         private System.Windows.Forms.Button CreateCollButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddProductToCollectionSubmit;
         private System.Windows.Forms.Button NewProductButton;
         private System.Windows.Forms.ListBox ProductCollectionList;
     }

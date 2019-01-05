@@ -18,6 +18,7 @@ namespace PopVinylCollectionManager {
         private void Form1_Load(object sender, EventArgs e) {
             UpdateCollectionListBox();
             UserNameLabel.Text = User.Instance.Name;
+            TotalCollectionCount.Text = User.Instance.CollCount.ToString();
         }
 
         private void CreateCollButton_Click(object sender, EventArgs e) {
@@ -57,6 +58,11 @@ namespace PopVinylCollectionManager {
             foreach(Product p in _DB.AddProductsToSelectedCollection(CollectionName)) {
                 ProductCollectionList.Items.Add(p);
             }
+        }
+
+        private void AddProductToCollectionSubmit_Click(object sender, EventArgs e) {
+            AddToCollectionForm a = new AddToCollectionForm(this);
+            a.Show();
         }
     }
 }
