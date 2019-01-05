@@ -32,7 +32,6 @@
             this.GroupBoxProfile = new System.Windows.Forms.GroupBox();
             this.NewProductButton = new System.Windows.Forms.Button();
             this.CreateCollButton = new System.Windows.Forms.Button();
-            this.TotalFigureCount = new System.Windows.Forms.Label();
             this.TotalCollectionCount = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.GroupBoxMain.SuspendLayout();
@@ -104,7 +103,6 @@
             // 
             this.GroupBoxProfile.Controls.Add(this.NewProductButton);
             this.GroupBoxProfile.Controls.Add(this.CreateCollButton);
-            this.GroupBoxProfile.Controls.Add(this.TotalFigureCount);
             this.GroupBoxProfile.Controls.Add(this.TotalCollectionCount);
             this.GroupBoxProfile.Controls.Add(this.UserNameLabel);
             this.GroupBoxProfile.Location = new System.Drawing.Point(1237, 19);
@@ -133,15 +131,6 @@
             this.CreateCollButton.Text = "Create new collection";
             this.CreateCollButton.UseVisualStyleBackColor = true;
             this.CreateCollButton.Click += new System.EventHandler(this.CreateCollButton_Click);
-            // 
-            // TotalFigureCount
-            // 
-            this.TotalFigureCount.AutoSize = true;
-            this.TotalFigureCount.Location = new System.Drawing.Point(12, 81);
-            this.TotalFigureCount.Name = "TotalFigureCount";
-            this.TotalFigureCount.Size = new System.Drawing.Size(59, 13);
-            this.TotalFigureCount.TabIndex = 2;
-            this.TotalFigureCount.Text = "500 figures";
             // 
             // TotalCollectionCount
             // 
@@ -184,7 +173,6 @@
         private System.Windows.Forms.GroupBox SelectedCollectionInfoGroupBox;
         private System.Windows.Forms.ListBox CollectionListBox;
         private System.Windows.Forms.GroupBox GroupBoxProfile;
-        private System.Windows.Forms.Label TotalFigureCount;
         private System.Windows.Forms.Label TotalCollectionCount;
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.Button EditCollButton;
