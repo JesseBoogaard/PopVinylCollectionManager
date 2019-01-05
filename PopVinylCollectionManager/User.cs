@@ -49,6 +49,12 @@ namespace PopVinylCollectionManager {
             }
         }
 
+        public int CollCount {
+            get {
+                return _UserCollections.Count;
+            }
+        }
+
         public int Id {
             get {
                 return _Id;
