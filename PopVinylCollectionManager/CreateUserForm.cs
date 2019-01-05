@@ -20,11 +20,11 @@ namespace PopVinylCollectionManager {
         }
 
         private void RegisterNewUser(string Name, string Password) {
-            if (SetCurrentUser(_DB.AddUserToDB(Name, Password))) {
+            if (CheckString(Name) && CheckString(Password) && SetCurrentUser(_DB.AddUserToDB(Name, Password))) {
                 MainForm a = new MainForm();
                 a.Show();
                 this.Hide();
-            };
+            }
         }
         private bool SetCurrentUser(int UID) {
             if(UID != 0) {
@@ -45,6 +45,14 @@ namespace PopVinylCollectionManager {
                 MainForm a = new MainForm();
                 a.Show();
                 this.Hide();
+            };
+        }
+        private bool CheckString(string s) {
+            if (!s.Contains("'")) {
+                return true;
+            } else {
+                MessageBox.Show("Your name contains an illegal character (')");
+                return false;
             };
         }
     }
