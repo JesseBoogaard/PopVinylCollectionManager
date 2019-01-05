@@ -35,13 +35,14 @@ namespace PopVinylCollectionManager {
 
         public void UpdateCollectionListBox() {
             CollectionListBox.Items.Clear();
-            foreach(Collection c in User.Instance.GetAllUserCollections) {
+            foreach (Collection c in Database.Instance.GetUserCollections(User.Instance.Id)) {
+                User.Instance.AddCollectionToUser(c);
                 CollectionListBox.Items.Add(c);
-            }
+            };
         }
 
         private void NewProductButton_Click(object sender, EventArgs e) {
-
+            OpenCreateProductForm();
         }
     }
 }
