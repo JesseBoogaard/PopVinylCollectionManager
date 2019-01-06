@@ -30,11 +30,12 @@
             this.EditCollButton = new System.Windows.Forms.Button();
             this.CollectionListBox = new System.Windows.Forms.ListBox();
             this.GroupBoxProfile = new System.Windows.Forms.GroupBox();
+            this.AddSeriesSubmit = new System.Windows.Forms.Button();
+            this.BrowseFiguresSubmit = new System.Windows.Forms.Button();
             this.NewProductButton = new System.Windows.Forms.Button();
             this.CreateCollButton = new System.Windows.Forms.Button();
             this.TotalCollectionCount = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
-            this.BrowseFiguresSubmit = new System.Windows.Forms.Button();
             this.GroupBoxMain.SuspendLayout();
             this.SelectedCollectionInfoGroupBox.SuspendLayout();
             this.GroupBoxProfile.SuspendLayout();
@@ -69,7 +70,7 @@
             this.ProductCollectionList.FormattingEnabled = true;
             this.ProductCollectionList.Location = new System.Drawing.Point(6, 19);
             this.ProductCollectionList.Name = "ProductCollectionList";
-            this.ProductCollectionList.Size = new System.Drawing.Size(330, 745);
+            this.ProductCollectionList.Size = new System.Drawing.Size(425, 745);
             this.ProductCollectionList.TabIndex = 2;
             // 
             // AddProductToCollectionSubmit
@@ -102,6 +103,7 @@
             // 
             // GroupBoxProfile
             // 
+            this.GroupBoxProfile.Controls.Add(this.AddSeriesSubmit);
             this.GroupBoxProfile.Controls.Add(this.BrowseFiguresSubmit);
             this.GroupBoxProfile.Controls.Add(this.NewProductButton);
             this.GroupBoxProfile.Controls.Add(this.CreateCollButton);
@@ -114,23 +116,43 @@
             this.GroupBoxProfile.TabStop = false;
             this.GroupBoxProfile.Text = "Profile";
             // 
+            // AddSeriesSubmit
+            // 
+            this.AddSeriesSubmit.Location = new System.Drawing.Point(123, 290);
+            this.AddSeriesSubmit.Name = "AddSeriesSubmit";
+            this.AddSeriesSubmit.Size = new System.Drawing.Size(75, 23);
+            this.AddSeriesSubmit.TabIndex = 6;
+            this.AddSeriesSubmit.Text = "Add series";
+            this.AddSeriesSubmit.UseVisualStyleBackColor = true;
+            this.AddSeriesSubmit.Click += new System.EventHandler(this.AddSeriesSubmit_Click);
+            // 
+            // BrowseFiguresSubmit
+            // 
+            this.BrowseFiguresSubmit.Location = new System.Drawing.Point(204, 290);
+            this.BrowseFiguresSubmit.Name = "BrowseFiguresSubmit";
+            this.BrowseFiguresSubmit.Size = new System.Drawing.Size(88, 23);
+            this.BrowseFiguresSubmit.TabIndex = 5;
+            this.BrowseFiguresSubmit.Text = "Browse figures";
+            this.BrowseFiguresSubmit.UseVisualStyleBackColor = true;
+            this.BrowseFiguresSubmit.Click += new System.EventHandler(this.BrowseFiguresSubmit_Click);
+            // 
             // NewProductButton
             // 
-            this.NewProductButton.Location = new System.Drawing.Point(15, 289);
+            this.NewProductButton.Location = new System.Drawing.Point(54, 290);
             this.NewProductButton.Name = "NewProductButton";
-            this.NewProductButton.Size = new System.Drawing.Size(120, 23);
+            this.NewProductButton.Size = new System.Drawing.Size(63, 23);
             this.NewProductButton.TabIndex = 4;
-            this.NewProductButton.Text = "Register new figure";
+            this.NewProductButton.Text = "Add figure";
             this.NewProductButton.UseVisualStyleBackColor = true;
             this.NewProductButton.Click += new System.EventHandler(this.NewProductButton_Click);
             // 
             // CreateCollButton
             // 
-            this.CreateCollButton.Location = new System.Drawing.Point(283, 289);
+            this.CreateCollButton.Location = new System.Drawing.Point(298, 290);
             this.CreateCollButton.Name = "CreateCollButton";
-            this.CreateCollButton.Size = new System.Drawing.Size(124, 23);
+            this.CreateCollButton.Size = new System.Drawing.Size(109, 23);
             this.CreateCollButton.TabIndex = 3;
-            this.CreateCollButton.Text = "Create new collection";
+            this.CreateCollButton.Text = "Create collection";
             this.CreateCollButton.UseVisualStyleBackColor = true;
             this.CreateCollButton.Click += new System.EventHandler(this.CreateCollButton_Click);
             // 
@@ -151,16 +173,6 @@
             this.UserNameLabel.Size = new System.Drawing.Size(29, 13);
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "User";
-            // 
-            // BrowseFiguresSubmit
-            // 
-            this.BrowseFiguresSubmit.Location = new System.Drawing.Point(142, 289);
-            this.BrowseFiguresSubmit.Name = "BrowseFiguresSubmit";
-            this.BrowseFiguresSubmit.Size = new System.Drawing.Size(135, 23);
-            this.BrowseFiguresSubmit.TabIndex = 5;
-            this.BrowseFiguresSubmit.Text = "Browse figures";
-            this.BrowseFiguresSubmit.UseVisualStyleBackColor = true;
-            this.BrowseFiguresSubmit.Click += new System.EventHandler(this.BrowseFiguresSubmit_Click);
             // 
             // MainForm
             // 
@@ -193,6 +205,7 @@
         private System.Windows.Forms.Button NewProductButton;
         private System.Windows.Forms.ListBox ProductCollectionList;
         private System.Windows.Forms.Button BrowseFiguresSubmit;
+        private System.Windows.Forms.Button AddSeriesSubmit;
     }
 }
 

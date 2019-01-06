@@ -72,5 +72,10 @@ namespace PopVinylCollectionManager {
             ProductCatalogForm a = new ProductCatalogForm();
             a.Show();
         }
+
+        private void AddSeriesSubmit_Click(object sender, EventArgs e) {
+            NewSeriesForm a = new NewSeriesForm();
+            a.Show();
+        }
     }
 }

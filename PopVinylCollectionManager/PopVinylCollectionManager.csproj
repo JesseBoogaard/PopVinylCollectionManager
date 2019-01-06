@@ -87,6 +87,12 @@
     <Compile Include="NewProductForm.Designer.cs">
       <DependentUpon>NewProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewSeriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewSeriesForm.Designer.cs">
+      <DependentUpon>NewSeriesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductCatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewProductForm.resx">
       <DependentUpon>NewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSeriesForm.resx">
+      <DependentUpon>NewSeriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductCatalogForm.resx">
       <DependentUpon>ProductCatalogForm.cs</DependentUpon>
