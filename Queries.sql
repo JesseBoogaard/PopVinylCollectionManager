@@ -1,8 +1,4 @@
-﻿SELECT ProductCollection.Product_ID, ProductCollection.Collection_ID, Product.ProductName, Product.ProductNo FROM ((ProductCollection
-INNER JOIN UserCollection ON ProductCollection.Collection_ID = UserCollection.Id)
-INNER JOIN Product ON ProductCollection.Product_ID = Product.Id)
-
-/* get collection from user where ID is a match */
+﻿/* get collection from user where ID is a match */
 SELECT Usr.Name, UserCollection.CollectionName, UserCollection.CollectionInfo, Product.ProductName, Product.ProductNo FROM (((ProductCollection
 INNER JOIN UserCollection ON ProductCollection.Collection_ID = UserCollection.Id)
 INNER JOIN Product ON ProductCollection.Product_ID = Product.Id)
@@ -19,3 +15,13 @@ ORDER BY ProductName DESC
 
 /* get count of unique figures in user collection */
 SELECT DISTINCT COUNT(ProductCollection.Product_ID) AS 'Unique figures' FROM ProductCollection WHERE Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = 'TestCollection')
+
+/* add a new product to the users collection, if this product isnt present yet*/
+IF NOT EXISTS(SELECT * FROM ProductCollection 
+WHERE Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = 'TestCollection') AND Product_ID = (SELECT Id FROM Product WHERE ProductName = 'TestProduct'))
+INSERT INTO ProductCollection (Product_ID, Collection_ID)
+VALUES ((SELECT Id FROM Product WHERE ProductName = 'TestProduct'), (SELECT Id FROM UserCollection WHERE CollectionName = 'TestCollection'))
+
+/* select the amount of products with a productnumber under 200 */
+SELECT COUNT(Id) AS 'Amount of Products' FROM Product
+HAVING COUNT(Id) < 200
