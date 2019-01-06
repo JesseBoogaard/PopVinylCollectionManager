@@ -48,10 +48,10 @@ namespace PopVinylCollectionManager {
             };
         }
         private bool CheckString(string s) {
-            if (!s.Contains("'")) {
+            if (!s.Contains("'") && s != "") {
                 return true;
             } else {
-                MessageBox.Show("Your name contains an illegal character (')");
+                MessageBox.Show("Your name contains an illegal character (') or is empty.");
                 return false;
             };
         }
