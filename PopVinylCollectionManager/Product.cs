@@ -18,7 +18,25 @@ namespace PopVinylCollectionManager {
         }
 
         public override string ToString() {
-            return "Name: " + _Name + "\t ProductNo.: " + _ProductNo + "\t Series: " + _Series;
+            return "Name: " + _Name + " | ProductNo.: " + _ProductNo + " | Series: " + _Series;
+        }
+
+        public string GetName {
+            get {
+                return _Name;
+            }
+        }
+
+        public long GetProdNo {
+            get {
+                return _ProductNo;
+            }
+        }
+
+        public string GetSeries {
+            get {
+                return _Series;
+            }
         }
     }
 }
