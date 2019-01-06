@@ -87,6 +87,12 @@
     <Compile Include="NewProductForm.Designer.cs">
       <DependentUpon>NewProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductCatalogForm.Designer.cs">
+      <DependentUpon>ProductCatalogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterCollectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewProductForm.resx">
       <DependentUpon>NewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductCatalogForm.resx">
+      <DependentUpon>ProductCatalogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterCollectionForm.resx">
       <DependentUpon>RegisterCollectionForm.cs</DependentUpon>

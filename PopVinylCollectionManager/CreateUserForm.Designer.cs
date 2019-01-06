@@ -24,17 +24,17 @@
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.NewUserSubmit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.NewUserNameInput = new System.Windows.Forms.TextBox();
             this.NewPasswordInput = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.UserPasswordInput = new System.Windows.Forms.TextBox();
-            this.UserNameInput = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.NewUserNameInput = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NewUserSubmit = new System.Windows.Forms.Button();
             this.UserLoginSubmit = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.UserNameInput = new System.Windows.Forms.TextBox();
+            this.UserPasswordInput = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -53,24 +53,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sign up";
             // 
-            // NewUserSubmit
+            // NewPasswordInput
             // 
-            this.NewUserSubmit.Location = new System.Drawing.Point(213, 178);
-            this.NewUserSubmit.Name = "NewUserSubmit";
-            this.NewUserSubmit.Size = new System.Drawing.Size(75, 23);
-            this.NewUserSubmit.TabIndex = 0;
-            this.NewUserSubmit.Text = "Register";
-            this.NewUserSubmit.UseVisualStyleBackColor = true;
-            this.NewUserSubmit.Click += new System.EventHandler(this.NewUserSubmit_Click);
+            this.NewPasswordInput.Location = new System.Drawing.Point(13, 120);
+            this.NewPasswordInput.Name = "NewPasswordInput";
+            this.NewPasswordInput.PasswordChar = '*';
+            this.NewPasswordInput.Size = new System.Drawing.Size(275, 20);
+            this.NewPasswordInput.TabIndex = 2;
             // 
-            // label1
+            // NewUserNameInput
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Username";
+            this.NewUserNameInput.Location = new System.Drawing.Point(10, 47);
+            this.NewUserNameInput.Name = "NewUserNameInput";
+            this.NewUserNameInput.Size = new System.Drawing.Size(278, 20);
+            this.NewUserNameInput.TabIndex = 1;
             // 
             // label2
             // 
@@ -81,20 +77,67 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
-            // NewUserNameInput
+            // label1
             // 
-            this.NewUserNameInput.Location = new System.Drawing.Point(10, 47);
-            this.NewUserNameInput.Name = "NewUserNameInput";
-            this.NewUserNameInput.Size = new System.Drawing.Size(278, 20);
-            this.NewUserNameInput.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Username";
             // 
-            // NewPasswordInput
+            // NewUserSubmit
             // 
-            this.NewPasswordInput.Location = new System.Drawing.Point(13, 120);
-            this.NewPasswordInput.Name = "NewPasswordInput";
-            this.NewPasswordInput.PasswordChar = '*';
-            this.NewPasswordInput.Size = new System.Drawing.Size(275, 20);
-            this.NewPasswordInput.TabIndex = 4;
+            this.NewUserSubmit.Location = new System.Drawing.Point(213, 178);
+            this.NewUserSubmit.Name = "NewUserSubmit";
+            this.NewUserSubmit.Size = new System.Drawing.Size(75, 23);
+            this.NewUserSubmit.TabIndex = 3;
+            this.NewUserSubmit.Text = "Register";
+            this.NewUserSubmit.UseVisualStyleBackColor = true;
+            this.NewUserSubmit.Click += new System.EventHandler(this.NewUserSubmit_Click);
+            // 
+            // UserLoginSubmit
+            // 
+            this.UserLoginSubmit.Location = new System.Drawing.Point(213, 178);
+            this.UserLoginSubmit.Name = "UserLoginSubmit";
+            this.UserLoginSubmit.Size = new System.Drawing.Size(75, 23);
+            this.UserLoginSubmit.TabIndex = 5;
+            this.UserLoginSubmit.Text = "Login";
+            this.UserLoginSubmit.UseVisualStyleBackColor = true;
+            this.UserLoginSubmit.Click += new System.EventHandler(this.UserLoginSubmit_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Username";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Password";
+            // 
+            // UserNameInput
+            // 
+            this.UserNameInput.Location = new System.Drawing.Point(10, 47);
+            this.UserNameInput.Name = "UserNameInput";
+            this.UserNameInput.Size = new System.Drawing.Size(278, 20);
+            this.UserNameInput.TabIndex = 4;
+            // 
+            // UserPasswordInput
+            // 
+            this.UserPasswordInput.Location = new System.Drawing.Point(13, 120);
+            this.UserPasswordInput.Name = "UserPasswordInput";
+            this.UserPasswordInput.PasswordChar = '*';
+            this.UserPasswordInput.Size = new System.Drawing.Size(275, 20);
+            this.UserPasswordInput.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -109,49 +152,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Login";
-            // 
-            // UserPasswordInput
-            // 
-            this.UserPasswordInput.Location = new System.Drawing.Point(13, 120);
-            this.UserPasswordInput.Name = "UserPasswordInput";
-            this.UserPasswordInput.PasswordChar = '*';
-            this.UserPasswordInput.Size = new System.Drawing.Size(275, 20);
-            this.UserPasswordInput.TabIndex = 4;
-            // 
-            // UserNameInput
-            // 
-            this.UserNameInput.Location = new System.Drawing.Point(10, 47);
-            this.UserNameInput.Name = "UserNameInput";
-            this.UserNameInput.Size = new System.Drawing.Size(278, 20);
-            this.UserNameInput.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Password";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Username";
-            // 
-            // UserLoginSubmit
-            // 
-            this.UserLoginSubmit.Location = new System.Drawing.Point(213, 178);
-            this.UserLoginSubmit.Name = "UserLoginSubmit";
-            this.UserLoginSubmit.Size = new System.Drawing.Size(75, 23);
-            this.UserLoginSubmit.TabIndex = 0;
-            this.UserLoginSubmit.Text = "Login";
-            this.UserLoginSubmit.UseVisualStyleBackColor = true;
-            this.UserLoginSubmit.Click += new System.EventHandler(this.UserLoginSubmit_Click);
             // 
             // CreateUserForm
             // 
@@ -178,11 +178,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button NewUserSubmit;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox UserPasswordInput;
-        private System.Windows.Forms.TextBox UserNameInput;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button UserLoginSubmit;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox UserNameInput;
+        private System.Windows.Forms.TextBox UserPasswordInput;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
