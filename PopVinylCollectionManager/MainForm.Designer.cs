@@ -36,6 +36,7 @@
             this.CreateCollButton = new System.Windows.Forms.Button();
             this.TotalCollectionCount = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
+            this.FigureCountLabel = new System.Windows.Forms.Label();
             this.GroupBoxMain.SuspendLayout();
             this.SelectedCollectionInfoGroupBox.SuspendLayout();
             this.GroupBoxProfile.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             // GroupBoxProfile
             // 
+            this.GroupBoxProfile.Controls.Add(this.FigureCountLabel);
             this.GroupBoxProfile.Controls.Add(this.AddSeriesSubmit);
             this.GroupBoxProfile.Controls.Add(this.BrowseFiguresSubmit);
             this.GroupBoxProfile.Controls.Add(this.NewProductButton);
@@ -174,6 +176,15 @@
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "User";
             // 
+            // FigureCountLabel
+            // 
+            this.FigureCountLabel.AutoSize = true;
+            this.FigureCountLabel.Location = new System.Drawing.Point(12, 84);
+            this.FigureCountLabel.Name = "FigureCountLabel";
+            this.FigureCountLabel.Size = new System.Drawing.Size(63, 13);
+            this.FigureCountLabel.TabIndex = 7;
+            this.FigureCountLabel.Text = "Figurecount";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +217,7 @@
         private System.Windows.Forms.ListBox ProductCollectionList;
         private System.Windows.Forms.Button BrowseFiguresSubmit;
         private System.Windows.Forms.Button AddSeriesSubmit;
+        private System.Windows.Forms.Label FigureCountLabel;
     }
 }
 

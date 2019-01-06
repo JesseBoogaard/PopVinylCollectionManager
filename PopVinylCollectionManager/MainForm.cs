@@ -19,6 +19,7 @@ namespace PopVinylCollectionManager {
             UpdateCollectionListBox();
             UserNameLabel.Text = $"Welcome Back, {User.Instance.Name}!";
             UpdateCollectionCount();
+            UpdateTotalFigureCount();
         }
 
         private void CreateCollButton_Click(object sender, EventArgs e) {
@@ -79,6 +80,10 @@ namespace PopVinylCollectionManager {
 
         public void UpdateCollectionCount() {
             TotalCollectionCount.Text = Database.Instance.GetUserCollectionCount(User.Instance.Id).ToString();
+        }
+
+        public void UpdateTotalFigureCount() {
+            FigureCountLabel.Text = Database.Instance.GetTotalProductsFromUser(User.Instance.Id).ToString();
         }
     }
 }
