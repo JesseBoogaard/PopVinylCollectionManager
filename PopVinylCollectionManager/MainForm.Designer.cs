@@ -78,7 +78,7 @@
             this.AddProductToCollectionSubmit.Name = "AddProductToCollectionSubmit";
             this.AddProductToCollectionSubmit.Size = new System.Drawing.Size(146, 23);
             this.AddProductToCollectionSubmit.TabIndex = 1;
-            this.AddProductToCollectionSubmit.Text = "Add product to collection";
+            this.AddProductToCollectionSubmit.Text = "Add figure to collection";
             this.AddProductToCollectionSubmit.UseVisualStyleBackColor = true;
             this.AddProductToCollectionSubmit.Click += new System.EventHandler(this.AddProductToCollectionSubmit_Click);
             // 
@@ -120,7 +120,7 @@
             this.NewProductButton.Name = "NewProductButton";
             this.NewProductButton.Size = new System.Drawing.Size(120, 23);
             this.NewProductButton.TabIndex = 4;
-            this.NewProductButton.Text = "Register new product";
+            this.NewProductButton.Text = "Register new figure";
             this.NewProductButton.UseVisualStyleBackColor = true;
             this.NewProductButton.Click += new System.EventHandler(this.NewProductButton_Click);
             // 

@@ -53,7 +53,7 @@ namespace PopVinylCollectionManager {
             UpdateProductCollectionList(Coll.Name);
         }
 
-        private void UpdateProductCollectionList(string CollectionName) {
+        public void UpdateProductCollectionList(string CollectionName) {
             ProductCollectionList.Items.Clear();
             foreach(Product p in _DB.AddProductsToSelectedCollection(CollectionName)) {
                 ProductCollectionList.Items.Add(p);
@@ -61,7 +61,10 @@ namespace PopVinylCollectionManager {
         }
 
         private void AddProductToCollectionSubmit_Click(object sender, EventArgs e) {
-            AddToCollectionForm a = new AddToCollectionForm(this);
+            object obj = CollectionListBox.SelectedItem;
+            Collection col = (Collection)obj;
+            string CollectionName = col.Name;
+            AddToCollectionForm a = new AddToCollectionForm(CollectionName, this);
             a.Show();
         }
 
