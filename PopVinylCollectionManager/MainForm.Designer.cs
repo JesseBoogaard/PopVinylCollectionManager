@@ -181,7 +181,7 @@
             this.ClientSize = new System.Drawing.Size(1584, 861);
             this.Controls.Add(this.GroupBoxMain);
             this.Name = "MainForm";
-            this.Text = "Pop! Vinyl Collection-manager";
+            this.Text = "Pop! Vinyl Collection Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.GroupBoxMain.ResumeLayout(false);
             this.SelectedCollectionInfoGroupBox.ResumeLayout(false);

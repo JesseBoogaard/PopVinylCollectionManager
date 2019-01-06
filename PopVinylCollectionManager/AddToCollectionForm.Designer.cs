@@ -76,7 +76,7 @@
             this.ClientSize = new System.Drawing.Size(348, 130);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddToCollectionForm";
-            this.Text = "AddToCollectionForm";
+            this.Text = "Add To Collection";
             this.Load += new System.EventHandler(this.AddToCollectionForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

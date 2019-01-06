@@ -75,7 +75,7 @@
             this.ClientSize = new System.Drawing.Size(288, 158);
             this.Controls.Add(this.groupBox1);
             this.Name = "NewSeriesForm";
-            this.Text = "NewSeriesForm";
+            this.Text = "New Series";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
