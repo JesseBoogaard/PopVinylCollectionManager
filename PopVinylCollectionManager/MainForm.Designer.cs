@@ -34,6 +34,7 @@
             this.CreateCollButton = new System.Windows.Forms.Button();
             this.TotalCollectionCount = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
+            this.BrowseFiguresSubmit = new System.Windows.Forms.Button();
             this.GroupBoxMain.SuspendLayout();
             this.SelectedCollectionInfoGroupBox.SuspendLayout();
             this.GroupBoxProfile.SuspendLayout();
@@ -58,7 +59,7 @@
             this.SelectedCollectionInfoGroupBox.Controls.Add(this.EditCollButton);
             this.SelectedCollectionInfoGroupBox.Location = new System.Drawing.Point(7, 19);
             this.SelectedCollectionInfoGroupBox.Name = "SelectedCollectionInfoGroupBox";
-            this.SelectedCollectionInfoGroupBox.Size = new System.Drawing.Size(1224, 811);
+            this.SelectedCollectionInfoGroupBox.Size = new System.Drawing.Size(1127, 811);
             this.SelectedCollectionInfoGroupBox.TabIndex = 2;
             this.SelectedCollectionInfoGroupBox.TabStop = false;
             this.SelectedCollectionInfoGroupBox.Text = "Selected Collection";
@@ -66,14 +67,14 @@
             // ProductCollectionList
             // 
             this.ProductCollectionList.FormattingEnabled = true;
-            this.ProductCollectionList.Location = new System.Drawing.Point(752, 20);
+            this.ProductCollectionList.Location = new System.Drawing.Point(6, 19);
             this.ProductCollectionList.Name = "ProductCollectionList";
-            this.ProductCollectionList.Size = new System.Drawing.Size(465, 745);
+            this.ProductCollectionList.Size = new System.Drawing.Size(330, 745);
             this.ProductCollectionList.TabIndex = 2;
             // 
             // AddProductToCollectionSubmit
             // 
-            this.AddProductToCollectionSubmit.Location = new System.Drawing.Point(752, 782);
+            this.AddProductToCollectionSubmit.Location = new System.Drawing.Point(6, 782);
             this.AddProductToCollectionSubmit.Name = "AddProductToCollectionSubmit";
             this.AddProductToCollectionSubmit.Size = new System.Drawing.Size(146, 23);
             this.AddProductToCollectionSubmit.TabIndex = 1;
@@ -83,7 +84,7 @@
             // 
             // EditCollButton
             // 
-            this.EditCollButton.Location = new System.Drawing.Point(904, 782);
+            this.EditCollButton.Location = new System.Drawing.Point(158, 782);
             this.EditCollButton.Name = "EditCollButton";
             this.EditCollButton.Size = new System.Drawing.Size(92, 23);
             this.EditCollButton.TabIndex = 0;
@@ -93,28 +94,29 @@
             // CollectionListBox
             // 
             this.CollectionListBox.FormattingEnabled = true;
-            this.CollectionListBox.Location = new System.Drawing.Point(1237, 345);
+            this.CollectionListBox.Location = new System.Drawing.Point(1140, 345);
             this.CollectionListBox.Name = "CollectionListBox";
-            this.CollectionListBox.Size = new System.Drawing.Size(316, 485);
+            this.CollectionListBox.Size = new System.Drawing.Size(413, 485);
             this.CollectionListBox.TabIndex = 1;
             this.CollectionListBox.SelectedIndexChanged += new System.EventHandler(this.CollectionListBox_SelectedIndexChanged);
             // 
             // GroupBoxProfile
             // 
+            this.GroupBoxProfile.Controls.Add(this.BrowseFiguresSubmit);
             this.GroupBoxProfile.Controls.Add(this.NewProductButton);
             this.GroupBoxProfile.Controls.Add(this.CreateCollButton);
             this.GroupBoxProfile.Controls.Add(this.TotalCollectionCount);
             this.GroupBoxProfile.Controls.Add(this.UserNameLabel);
-            this.GroupBoxProfile.Location = new System.Drawing.Point(1237, 19);
+            this.GroupBoxProfile.Location = new System.Drawing.Point(1140, 19);
             this.GroupBoxProfile.Name = "GroupBoxProfile";
-            this.GroupBoxProfile.Size = new System.Drawing.Size(316, 319);
+            this.GroupBoxProfile.Size = new System.Drawing.Size(413, 319);
             this.GroupBoxProfile.TabIndex = 0;
             this.GroupBoxProfile.TabStop = false;
             this.GroupBoxProfile.Text = "Profile";
             // 
             // NewProductButton
             // 
-            this.NewProductButton.Location = new System.Drawing.Point(60, 289);
+            this.NewProductButton.Location = new System.Drawing.Point(15, 289);
             this.NewProductButton.Name = "NewProductButton";
             this.NewProductButton.Size = new System.Drawing.Size(120, 23);
             this.NewProductButton.TabIndex = 4;
@@ -124,7 +126,7 @@
             // 
             // CreateCollButton
             // 
-            this.CreateCollButton.Location = new System.Drawing.Point(186, 289);
+            this.CreateCollButton.Location = new System.Drawing.Point(283, 289);
             this.CreateCollButton.Name = "CreateCollButton";
             this.CreateCollButton.Size = new System.Drawing.Size(124, 23);
             this.CreateCollButton.TabIndex = 3;
@@ -149,6 +151,16 @@
             this.UserNameLabel.Size = new System.Drawing.Size(29, 13);
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "User";
+            // 
+            // BrowseFiguresSubmit
+            // 
+            this.BrowseFiguresSubmit.Location = new System.Drawing.Point(142, 289);
+            this.BrowseFiguresSubmit.Name = "BrowseFiguresSubmit";
+            this.BrowseFiguresSubmit.Size = new System.Drawing.Size(135, 23);
+            this.BrowseFiguresSubmit.TabIndex = 5;
+            this.BrowseFiguresSubmit.Text = "Browse figures";
+            this.BrowseFiguresSubmit.UseVisualStyleBackColor = true;
+            this.BrowseFiguresSubmit.Click += new System.EventHandler(this.BrowseFiguresSubmit_Click);
             // 
             // MainForm
             // 
@@ -180,6 +192,7 @@
         private System.Windows.Forms.Button AddProductToCollectionSubmit;
         private System.Windows.Forms.Button NewProductButton;
         private System.Windows.Forms.ListBox ProductCollectionList;
+        private System.Windows.Forms.Button BrowseFiguresSubmit;
     }
 }
 
