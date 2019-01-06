@@ -25,3 +25,9 @@ VALUES ((SELECT Id FROM Product WHERE ProductName = 'TestProduct'), (SELECT Id F
 /* select the amount of products with a productnumber under 200 */
 SELECT COUNT(Id) AS 'Amount of Products' FROM Product
 HAVING COUNT(Id) < 200
+
+/* select total amount of products owned by 1 user */
+SELECT COUNT(Product_ID) 
+FROM UserCollection
+JOIN ProductCollection ON UserCollection.Id = ProductCollection.Collection_ID
+WHERE UserCollection.User_ID = 2
