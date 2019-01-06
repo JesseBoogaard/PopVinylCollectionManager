@@ -102,7 +102,7 @@ namespace PopVinylCollectionManager {
             string Query = $"SELECT Product.ProductName AS 'Product Name', Product.ProductNo AS 'Product Number', Series.SeriesName AS 'Series' FROM ((ProductCollection " +
                 "INNER JOIN Product ON ProductCollection.Product_ID = Product.Id) " +
                 "INNER JOIN Series ON Product.SeriesID = Series.Id) " +
-                $"WHERE ProductCollection.Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = 'TestCollection') " +
+                $"WHERE ProductCollection.Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = '{CollectionName}') " +
                 "GROUP BY Product.ProductName, Product.ProductNo, Series.SeriesName " +
                 "ORDER BY Product.ProductName ASC";
             Conn.Open();
@@ -148,6 +148,25 @@ namespace PopVinylCollectionManager {
             }
             Conn.Close();
             return Result;
+        }
+
+        public bool AddProductToSelectedCollection(string ProductName, string CollectionName) {
+            string Query = $"IF NOT EXISTS(SELECT * FROM ProductCollection " +
+            $"WHERE Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = '{CollectionName}') " + 
+            "AND Product_ID = (SELECT Id FROM Product WHERE ProductName = '{ProductName}')) " +
+            $"INSERT INTO ProductCollection (Product_ID, Collection_ID) " +
+            $"VALUES ((SELECT Id FROM Product WHERE ProductName = '{ProductName}'), (SELECT Id FROM UserCollection WHERE CollectionName = '{CollectionName}'))";
+            try {
+                Conn.Open();
+                SqlCommand cmd = new SqlCommand(Query, Conn);
+                cmd.ExecuteNonQuery();
+                Conn.Close();
+                return true;
+            } catch(Exception e) {
+                Conn.Close();
+                MessageBox.Show(e.Message);
+                return false;
+            }
         }
 
         public bool AddProductToDB(string Name, int ProdNo, int Series) {
