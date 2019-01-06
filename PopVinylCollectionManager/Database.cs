@@ -210,6 +210,21 @@ namespace PopVinylCollectionManager {
             return true;
         }
 
+        public int GetTotalProductsFromUser(int UID) {
+            int result = 0;
+            string Query = $"SELECT COUNT(Product_ID) FROM UserCollection JOIN ProductCollection ON UserCollection.Id = ProductCollection.Collection_ID WHERE UserCollection.User_ID = {UID}";
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    result = r.GetInt32(0);
+                }
+                Conn.Close();
+                return result;
+            }
+
+        }
+
         // END Methods for products
         // START Methods for series
 

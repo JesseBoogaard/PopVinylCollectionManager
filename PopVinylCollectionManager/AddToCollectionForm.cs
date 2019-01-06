@@ -38,6 +38,7 @@ namespace PopVinylCollectionManager {
         private void AddSelectedProductToCollection(string ProductName) {
             if (Database.Instance.AddProductToSelectedCollection(ProductName, _CollectionName)) {
                 _MF.UpdateProductCollectionList(_CollectionName);
+                _MF.UpdateTotalFigureCount();
                 this.Close();
             } else {
                 MessageBox.Show("Something went wrong adding this product to your collection. Please try again later.");
