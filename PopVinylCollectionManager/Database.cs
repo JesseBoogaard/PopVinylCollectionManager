@@ -21,6 +21,9 @@ namespace PopVinylCollectionManager {
                 return _instance;
             }
         }
+
+        // START Methods for user account
+
         // register new user in database
         public int AddUserToDB(string Name, string Password) {
             string Query = $"INSERT INTO Usr (Name, Password) VALUES ('{Name}', '{Password}') SELECT Id FROM Usr WHERE Name = '{Name}'";
@@ -65,6 +68,10 @@ namespace PopVinylCollectionManager {
                 return res.Id;
             }
         }
+
+        // END Methods for user account
+        // START Methods for collections
+
         // register usercollection to database
         public bool AddCollectionToDB(string Name, string Info) {
             int UID = User.Instance.Id;
@@ -82,6 +89,7 @@ namespace PopVinylCollectionManager {
             }
         }
 
+        // get all usercollections based on user ID
         public List<Collection> GetUserCollections(int UID) {
             string Query = $"SELECT CollectionName, CollectionInfo FROM UserCollection WHERE User_ID = {UID}";
             List<Collection> Result = new List<Collection>();
@@ -97,6 +105,7 @@ namespace PopVinylCollectionManager {
             return Result;
         }
 
+        // Fill selected local collection object with associated products
         public List<Product> AddProductsToSelectedCollection(string CollectionName) {
             List<Product> Result = new List<Product>();
             string Query = $"SELECT Product.ProductName AS 'Product Name', Product.ProductNo AS 'Product Number', Series.SeriesName AS 'Series' FROM ((ProductCollection " +
@@ -117,42 +126,10 @@ namespace PopVinylCollectionManager {
             return Result;
         }
 
-        public List<Product> GetAllProductsFromDB() {
-            string Query = 
-                "SELECT Product.ProductName AS 'Name', Product.ProductNo AS 'Number', Series.SeriesName AS 'Series' FROM (Product " +
-                "INNER JOIN Series ON Product.SeriesID = Series.Id) " +
-                "GROUP BY Product.ProductName, Product.ProductNo, Series.SeriesName " +
-                "ORDER BY Series ASC";
-            List<Product> Result = new List<Product>();
-            Conn.Open();
-            SqlCommand cmd = new SqlCommand(Query, Conn);
-
-            using(SqlDataReader r = cmd.ExecuteReader()) {
-                while (r.Read()) {
-                    Result.Add(new Product(r.GetString(0), r.GetInt32(1), r.GetString(2)));
-                }
-            }
-            Conn.Close();
-            return Result;
-        }
-
-        public List<Series> GetAllSeries() {
-            string Query = "SELECT SeriesName, Id FROM Series";
-            List<Series> Result = new List<Series>();
-            Conn.Open();
-            SqlCommand cmd = new SqlCommand(Query, Conn);
-            using (SqlDataReader r = cmd.ExecuteReader()) {
-                while (r.Read()) {
-                    Result.Add(new Series(r.GetString(0), r.GetInt32(1)));
-                }
-            }
-            Conn.Close();
-            return Result;
-        }
-
+        // Add new product to selected collection
         public bool AddProductToSelectedCollection(string ProductName, string CollectionName) {
             string Query = $"IF NOT EXISTS(SELECT * FROM ProductCollection " +
-            $"WHERE Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = '{CollectionName}') " + 
+            $"WHERE Collection_ID = (SELECT Id FROM UserCollection WHERE CollectionName = '{CollectionName}') " +
             "AND Product_ID = (SELECT Id FROM Product WHERE ProductName = '{ProductName}')) " +
             $"INSERT INTO ProductCollection (Product_ID, Collection_ID) " +
             $"VALUES ((SELECT Id FROM Product WHERE ProductName = '{ProductName}'), (SELECT Id FROM UserCollection WHERE CollectionName = '{CollectionName}'))";
@@ -162,12 +139,15 @@ namespace PopVinylCollectionManager {
                 cmd.ExecuteNonQuery();
                 Conn.Close();
                 return true;
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Conn.Close();
                 MessageBox.Show(e.Message);
                 return false;
             }
         }
+
+        // END Methods for collections
+        // START Methods for products
 
         public bool AddProductToDB(string Name, int ProdNo, int Series) {
             string Query = $"IF NOT EXISTS (SELECT * FROM Product WHERE ProductNo = {ProdNo})" +
@@ -186,12 +166,69 @@ namespace PopVinylCollectionManager {
             }
         }
 
+        // remove product from database based on name
         public bool RemoveProductFromDB(/*product name,*/) {
             return true;
         }
 
+        // get all products registered in the database
+        public List<Product> GetAllProductsFromDB() {
+            string Query =
+                "SELECT Product.ProductName AS 'Name', Product.ProductNo AS 'Number', Series.SeriesName AS 'Series' FROM (Product " +
+                "INNER JOIN Series ON Product.SeriesID = Series.Id) " +
+                "GROUP BY Product.ProductName, Product.ProductNo, Series.SeriesName " +
+                "ORDER BY Series ASC";
+            List<Product> Result = new List<Product>();
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    Result.Add(new Product(r.GetString(0), r.GetInt32(1), r.GetString(2)));
+                }
+            }
+            Conn.Close();
+            return Result;
+        }
+
+        // update product info
         public bool UpdateProductInDB(/*product name, changes*/) {
             return true;
         }
+
+        // END Methods for products
+        // START Methods for series
+
+        public bool AddNewSeriesToDB(string SeriesName) {
+            string Query = $"IF NOT EXISTS(SELECT * FROM Series WHERE SeriesName = '{SeriesName}') " + 
+                $"INSERT INTO Series (SeriesName) VALUES ('{SeriesName}')";
+            try {
+                Conn.Open();
+                SqlCommand cmd = new SqlCommand(Query, Conn);
+                cmd.ExecuteNonQuery();
+                Conn.Close();
+                return true;
+            } catch(Exception e) {
+                Conn.Close();
+                MessageBox.Show(e.Message);
+                return false;
+            };
+        }
+
+        public List<Series> GetAllSeries() {
+            string Query = "SELECT SeriesName, Id FROM Series";
+            List<Series> Result = new List<Series>();
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+            using (SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    Result.Add(new Series(r.GetString(0), r.GetInt32(1)));
+                }
+            }
+            Conn.Close();
+            return Result;
+        }
+
+        // END Methods for series
     }
 }
