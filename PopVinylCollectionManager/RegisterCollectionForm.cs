@@ -25,6 +25,7 @@ namespace PopVinylCollectionManager {
             if (_DB.AddCollectionToDB(Name, Info)) {
                 User.Instance.AddCollectionToUser(new Collection(Name, Info));
                 _a.UpdateCollectionListBox();
+                _a.UpdateCollectionCount();
                 this.Close();
             } else {
                 MessageBox.Show("Something went wrong adding your collection, please try again later.");

@@ -17,8 +17,8 @@ namespace PopVinylCollectionManager {
 
         private void Form1_Load(object sender, EventArgs e) {
             UpdateCollectionListBox();
-            UserNameLabel.Text = User.Instance.Name;
-            TotalCollectionCount.Text = User.Instance.CollCount.ToString();
+            UserNameLabel.Text = $"Welcome Back, {User.Instance.Name}!";
+            UpdateCollectionCount();
         }
 
         private void CreateCollButton_Click(object sender, EventArgs e) {
@@ -38,7 +38,6 @@ namespace PopVinylCollectionManager {
         public void UpdateCollectionListBox() {
             CollectionListBox.Items.Clear();
             foreach (Collection c in Database.Instance.GetUserCollections(User.Instance.Id)) {
-                User.Instance.AddCollectionToUser(c);
                 CollectionListBox.Items.Add(c);
             };
         }
@@ -76,6 +75,10 @@ namespace PopVinylCollectionManager {
         private void AddSeriesSubmit_Click(object sender, EventArgs e) {
             NewSeriesForm a = new NewSeriesForm();
             a.Show();
+        }
+
+        public void UpdateCollectionCount() {
+            TotalCollectionCount.Text = Database.Instance.GetUserCollectionCount(User.Instance.Id).ToString();
         }
     }
 }

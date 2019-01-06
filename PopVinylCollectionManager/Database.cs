@@ -146,6 +146,20 @@ namespace PopVinylCollectionManager {
             }
         }
 
+        public int GetUserCollectionCount(int UID) {
+            int result = 0;
+            string Query = $"SELECT COUNT(UserCollection.Id) FROM UserCollection WHERE User_ID = '{UID}'";
+            Conn.Open();
+            SqlCommand cmd = new SqlCommand(Query, Conn);
+            using(SqlDataReader r = cmd.ExecuteReader()) {
+                while (r.Read()) {
+                    result = r.GetInt32(0);
+                }
+                Conn.Close();
+                return result;
+            }
+        }
+
         // END Methods for collections
         // START Methods for products
 
