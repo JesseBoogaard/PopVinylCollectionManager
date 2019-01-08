@@ -22,11 +22,11 @@ namespace PopVinylCollectionManager {
             }
         }
 
-        public List<Product> Products {
+        /*public List<Product> Products {
             get {
                 return _Products;
             }
-        }
+        }*/
 
         public override string ToString() {
             return $"Collection: {_Name} \t Info: {_Info}";
