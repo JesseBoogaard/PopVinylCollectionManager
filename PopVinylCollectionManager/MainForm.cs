@@ -50,15 +50,15 @@ namespace PopVinylCollectionManager {
         private void CollectionListBox_SelectedIndexChanged(object sender, EventArgs e) {
             if(CollectionListBox.SelectedIndex != -1) {
                 object obj = CollectionListBox.SelectedItem;
-                UpdateProductCollectionList(obj);
+                Collection coll = (Collection)obj;
+                UpdateProductCollectionList(coll.Name);
             }
         }
 
-        public void UpdateProductCollectionList(object obj) {
-            Collection Coll = (Collection)obj;
-            string CollectionName = Coll.Name;
+        public void UpdateProductCollectionList(string CollName) {
+            Collection coll = User.Instance.GetAllUserCollections.Where(res => res.Name == CollName).FirstOrDefault();
             ProductCollectionList.Items.Clear();
-            foreach(Product p in _DB.AddProductsToSelectedCollection(CollectionName)) {
+            foreach(Product p in _DB.AddProductsToSelectedCollection(CollName)) {
                 ProductCollectionList.Items.Add(p);
             }
         }
